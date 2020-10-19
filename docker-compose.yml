@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  server:
+    container_name: nginx_simple_spa
+    working_dir: /srv/app
+    build:
+      context: .
+      dockerfile: ./docker/development/nginx/Dockerfile
+    volumes:
+      - ./app:/srv/app
+      - ./docker/development/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/development/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "8888:80"
+    depends_on:
+      - app
+    links:
+      - app
