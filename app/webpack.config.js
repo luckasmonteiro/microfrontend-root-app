@@ -72,32 +72,6 @@ module.exports = webpackConfigEnv => {
                         {
                             loader: 'style-loader'
                         },
-                        // {
-                        //     loader: MiniCssExtractPlugin.loader,
-                        //     options: {
-                        //         esModule: false,
-                        //         modules: {
-                        //             namedExport: false
-                        //         },
-                        //         sourceMap: true,
-                        //         importLoaders: 3,
-                        //         hmr: true
-                        //     }
-                        // },
-                        // {
-                        //     loader: "postcss-loader",
-                        //     options: {
-                        //         sourceMap: true,
-                        //         postcssOptions: {
-                        //             ident: "postcss",
-                        //             plugins: [
-                        //                 require("precss")(),
-                        //                 require("autoprefixer")(),
-                        //                 require("postcss-import")()
-                        //             ]
-                        //         }
-                        //     }
-                        // },
                         {
                             loader: "css-loader",
                             options: {
