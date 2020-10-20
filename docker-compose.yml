@@ -1,5 +1,21 @@
 version: "3.7"
 services:
+  app:
+    container_name: nodejs
+    build:
+      context: .
+      dockerfile: ./docker/development/node/Dockerfile
+    volumes:
+      - ./app:/srv/app
+      - ./app/node_modules:/srv/app/node_modules
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+    command: "npm start"
+
   server:
     container_name: nginx_simple_spa
     working_dir: /srv/app

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Polyglot Microfrontends</title>
+    <meta name="importmap-type" content="systemjs-importmap" />
+    <script type="systemjs-importmap" src="./src/importmap.json"></script>
+    <% if (htmlWebpackPlugin.options.isLocal === false) { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@qualis-mf/root-config": "http://localhost:9000/qualis-mf-root-config.js",
+        }
+      }
+    </script>
+    <% } %>
+    <script src="https://unpkg.com/zone.js@0.11.2/dist/zone.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.0.0/dist/import-map-overrides.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.6.1/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.6.1/dist/extras/amd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.6.1/dist/extras/named-exports.min.js"></script>
+    <template id="single-spa-layout">
+      <single-spa-router>
+        <nav class="topnav">
+          <application name="@qualis-mf-navbar"></application>
+        </nav>
+        <div class="main-content">
+          <!-- <route path="app1">
+            <application name="app1"></application>
+          </route>
+          <route path="app2">
+            <application name="app2"></application>
+          </route> -->
+        </div>
+      </single-spa-router>
+    </template>
+  </head>
+
+  <body>
+    <script>
+      System.import('@qualis-mf/root-config');
+      // System.import('@qualis-mf-navbar');
+      // Promise.all([
+      //   System.import("single-spa"),
+      //   System.import("single-spa-layout"),
+      // ]).then(([singleSpa, singleSpaLayout]) => {
+      //   const {
+      //     constructApplications,
+      //     constructLayoutEngine,
+      //     constructRoutes,
+      //   } = singleSpaLayout;
+      //   const { registerApplication, start } = singleSpa;
+
+      //   const routes = constructRoutes(
+      //     document.querySelector("#single-spa-layout")
+      //   );
+      //   const applications = constructApplications({
+      //     routes,
+      //     loadApp({ name }) {
+      //       return System.import(name);
+      //     },
+      //   });
+      //   const layoutEngine = constructLayoutEngine({ routes, applications });
+      //   applications.forEach(registerApplication);
+
+      //   start();
+      // });
+    </script>
+    <import-map-overrides-full
+      show-when-local-storage="devtools"
+      dev-libs
+    ></import-map-overrides-full>
+  </body>
+</html>
