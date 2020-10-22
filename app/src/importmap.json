@@ -3,6 +3,9 @@
         "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/5.5.0/system/single-spa.min.js",
         "single-spa-layout": "https://unpkg.com/single-spa-layout@1.1.2/dist/system/single-spa-layout.min.js",
         "@qualis-mf/root-config": "http://localhost:9000/qualis-mf-root-config.js",
-        "@qualis-mf-navbar": "http://localhost:4200/main.js"
+        "@qualis-mf-navbar": "http://localhost:8081/main-es2015.js",
+        "@qualis-mf-app1": "http://localhost:8082/main-es2015.js",
+        "@qualis-mf-app2": "http://localhost:8083/main-es2015.js",
+        "@qualis-mf-app3": "http://localhost:8084/main-es2015.js"
     }
 }

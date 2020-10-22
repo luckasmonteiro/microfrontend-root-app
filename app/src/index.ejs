@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Polyglot Microfrontends</title>
     <meta name="importmap-type" content="systemjs-importmap" />
-    <script type="systemjs-importmap" src="./src/importmap.json"></script>
+    <script type="systemjs-importmap" src="http://localhost:9000/src/importmap.json"></script>
     <% if (htmlWebpackPlugin.options.isLocal === false) { %>
     <script type="systemjs-importmap">
       {
@@ -27,12 +27,6 @@
           <application name="@qualis-mf-navbar"></application>
         </nav>
         <div class="main-content">
-          <!-- <route path="app1">
-            <application name="app1"></application>
-          </route>
-          <route path="app2">
-            <application name="app2"></application>
-          </route> -->
         </div>
       </single-spa-router>
     </template>
@@ -46,5 +40,11 @@
       show-when-local-storage="devtools"
       dev-libs
     ></import-map-overrides-full>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            if(!window.location.href.match(/app/))
+                window.location.href = 'app'
+        });
+    </script>
   </body>
 </html>

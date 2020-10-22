@@ -7,11 +7,16 @@
   --navbar-height: 6rem;
 }
 
+html,
+body {
+  height: 100%;
+
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   /* default font size is 16px */
   font-size: 1.6rem;
-  background-color: #666;
   margin: 0;
 }
 
